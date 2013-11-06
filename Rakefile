@@ -37,6 +37,11 @@ task :install do
   puts "Initalizing and updating git submodules..."
   system %Q{git submodule init}
   system %Q{git submodule update}
+
+  puts "Updating vim bundles with +BundleInstall +qall"
+  system %Q{vim +BundleInstall +qall}
+
+  puts "Installation of dotfiles completed."
 end
 
 def replace_file(file)
