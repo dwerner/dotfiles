@@ -40,6 +40,9 @@ Bundle 'tfnico/vim-gradle'
 Bundle 'jade.vim' 
 Bundle 'walm/jshint.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'xolox/vim-reload'
+Bundle 'xolox/vim-misc'
+Bundle 'tpope/vim-surround'
 
 let g:Powerline_symbols = 'fancy'
 
@@ -227,6 +230,11 @@ if executable("ack")
 endif
 
 " Color scheme
+if $TERM =~ '256color'
+  set t_Co=256
+elseif $TERM =~ '^xterm$'
+  set t_Co=256
+endif
 colorscheme molokai
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
