@@ -34,6 +34,9 @@ task :install do
       link_file(file)
     end
   end
+  puts "Initalizing and updating git submodules..."
+  system %Q{git submodule init}
+  system %Q{git submodule update}
 end
 
 def replace_file(file)
