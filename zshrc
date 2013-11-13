@@ -6,10 +6,11 @@ plugins=(git rbates)
 
 export PATH="/usr/local/bin:$PATH"
 export EDITOR='vim'
+export ADT_HOME="$HOME/Development/adt-bundle/sdk"
 
 source $ZSH/oh-my-zsh.sh
 
 # for Homebrew installed rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export PATH="~/Development/adt-bundle/platform-tools:$PATH"
+export PATH="$ADT_HOME/platform-tools:$PATH"
