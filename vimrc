@@ -235,7 +235,10 @@ if $TERM =~ '256color'
 elseif $TERM =~ '^xterm$'
   set t_Co=256
 endif
-colorscheme molokai
+syntax enable
+set background=light
+
+"colorscheme solarized
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
 

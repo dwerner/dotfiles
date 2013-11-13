@@ -14,3 +14,6 @@ source $ZSH/oh-my-zsh.sh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH="$ADT_HOME/platform-tools:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+   PATH="$HOME/.local/bin:$PATH"
+fi
