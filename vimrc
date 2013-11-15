@@ -30,6 +30,8 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 endif
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+
 call vundle#rc()
 
 " Bundle list - update with :BundleInstall!

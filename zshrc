@@ -17,3 +17,7 @@ export PATH="$ADT_HOME/platform-tools:$PATH"
 if [ -d "$HOME/.local/bin" ]; then
    PATH="$HOME/.local/bin:$PATH"
 fi
+
+if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+      source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
