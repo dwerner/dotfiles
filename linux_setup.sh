@@ -8,4 +8,7 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
-
+mkdir -p fonts/monofur
+unzip fonts/monofur.zip -d fonts/monofur
+mkdir -p ~/.fonts
+cp fonts/monofur/*.ttf ~/.fonts
