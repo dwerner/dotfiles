@@ -46,6 +46,7 @@ Bundle 'xolox/vim-reload'
 Bundle 'xolox/vim-misc'
 Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
+Bundle 'kien/ctrlp.vim'
 
 let g:Powerline_symbols = 'fancy'
 
