@@ -48,6 +48,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
+Bundle 'tfnico/vim-gradle'
 
 let g:Powerline_symbols = 'fancy'
 
@@ -242,7 +243,7 @@ elseif $TERM =~ '^xterm$'
 endif
 syntax enable
 set background=light
-
+ 
 "colorscheme solarized
 " highlight NonText guibg=#060606
 " highlight Folded  guibg=#0A0A0A guifg=#9090D0
