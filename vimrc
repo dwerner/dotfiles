@@ -41,7 +41,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tfnico/vim-gradle' 
 Bundle 'jade.vim' 
 Bundle 'walm/jshint.vim'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'xolox/vim-reload'
 Bundle 'xolox/vim-misc'
 Bundle 'tpope/vim-surround'
@@ -138,6 +137,9 @@ if has("autocmd")
 
     " Automatically load .vimrc source when saved
     autocmd BufWritePost .vimrc source $MYVIMRC
+
+    "automatically run unit tests if we are working on app.js
+    autocmd BufWritePost *.js !mocha -G --harmony test 
 
   augroup END
 
@@ -271,18 +273,6 @@ set tags=./tags;
 
 let g:fuf_splitPathMatching=1
 
-" Open URL
-command -bar -nargs=1 OpenURL :!open <args>
-function! OpenURL()
-  let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
-  echo s:uri
-  if s:uri != ""
-    exec "!open \"" . s:uri . "\""
-  else
-    echo "No URI found in line."
-  endif
-endfunction
-map <Leader>w :call OpenURL()<CR>
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 " Helper functions
