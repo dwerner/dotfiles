@@ -139,7 +139,7 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
     "automatically run unit tests if we are working on app.js
-    autocmd BufWritePost *.js !mocha -G --harmony test 
+    autocmd BufWritePost *.js !mocha -G --reporter nyan --harmony test 
 
   augroup END
 
