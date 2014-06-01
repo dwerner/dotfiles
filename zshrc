@@ -14,10 +14,12 @@ source $ZSH/oh-my-zsh.sh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH="$ADT_HOME/platform-tools:$PATH"
-if [ -d "$HOME/.local/bin" ]; then
-   PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+   PATH="$HOME/bin:$PATH"
 fi
 
 if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
       source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
+
+alias nodeh="node --harmony"
