@@ -1,10 +1,9 @@
 #!/bin/sh
 
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+set -e
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-brew install pip
+brew install python
 
-mkdir -p fonts/monofur
-unzip fonts/monofur.zip -d fonts/monofur
 cp fonts/monofur/*.ttf /Library/Fonts  #/System/Library/Fonts is reserved for apple
 
