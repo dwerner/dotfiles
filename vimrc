@@ -29,7 +29,7 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=$HOME/.vim/bundle/vundle/
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 call vundle#rc()
@@ -38,6 +38,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive.git' 
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 Bundle 'tfnico/vim-gradle' 
 Bundle 'jade.vim' 
 Bundle 'walm/jshint.vim'
@@ -48,6 +49,8 @@ Bundle 'wting/rust.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'tfnico/vim-gradle'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'jnwhiteh/vim-golang'
 
 let g:Powerline_symbols = 'fancy'
 
@@ -111,8 +114,15 @@ if has("autocmd")
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
+  " Some Linux distributions set filetype in /etc/vimrc.
+  "   " Clear filetype flags before changing runtimepath to force Vim to reload them.
+  if exists("g:did_load_filetypes")
+    filetype off
+    filetype plugin indent off
+  endif
+  set runtimepath+=GOROOT/misc/vim " replace $GOROOT withthe output of: go env GOROOT
   filetype plugin indent on
+  syntax on
 
   " Set File type to 'text' for files ending in .txt
   autocmd BufNewFile,BufRead *.txt setfiletype text
