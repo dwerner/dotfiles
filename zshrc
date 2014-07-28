@@ -19,6 +19,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/Development/vertx/vertx-dist/bin:$PATH"
 export PATH="$ADT_HOME/tools:$PATH"
 export PATH="$GROOVY_HOME/bin:$PATH"
+export PATH="$HOME/Development/depot_tools:$PATH"
 export GOPATH="$HOME/Development/go"
 export GOROOT="`go env GOROOT`"
 
@@ -33,4 +34,4 @@ fi
 
 alias nodeh="node --harmony"
 
-eval "$(jenv init -)"
+#eval "$(jenv init -)"
