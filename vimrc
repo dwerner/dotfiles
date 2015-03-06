@@ -48,10 +48,15 @@ Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
-Bundle 'tfnico/vim-gradle'
 Bundle 'derekwyatt/vim-scala'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'udalov/kotlin-vim' 
+Bundle 'suan/vim-instant-markdown'
+Bundle 'ekalinin/Dockerfile.vim'
 
+
+
+" let g:instant_markdown_slow = 1
 let g:Powerline_symbols = 'fancy'
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
@@ -149,8 +154,7 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
     "automatically run unit tests if we are working on app.js
-    autocmd BufWritePost *.js !mocha -G --reporter nyan --harmony test 
-
+    autocmd BufWritePost *.js !mocha -G ./test/ --recursive > testlog.txt 2>&1 &
   augroup END
 
 else
@@ -192,6 +196,7 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
+nnoremap <Leader>q" ciw""<Esc>P
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
