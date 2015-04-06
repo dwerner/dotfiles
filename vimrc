@@ -155,6 +155,7 @@ if has("autocmd")
 
     "automatically run unit tests if we are working on app.js
     autocmd BufWritePost *.js !mocha -G ./test/ --recursive > testlog.txt 2>&1 &
+    autocmd BufWritePost *.kt !if [ -x "./test" ]; then ./test > testlog.txt 2>&1 &; fi
   augroup END
 
 else
@@ -174,7 +175,7 @@ endif " has("autocmd")
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
-set expandtab
+" set expandtab
 
 " Always display the status line
 set laststatus=2
