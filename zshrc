@@ -6,7 +6,15 @@ plugins=(git rbates)
 
 export EDITOR='vim'
 export ADT_HOME="$HOME/Development/adt-bundle/sdk"
+export ANDROID_HOME="$ADT_HOME"
 export GROOVY_HOME="$HOME/Development/groovy"
+export GRADLE_HOME="$HOME/Development/gradle-2.0"
+export ANDROID_SDK="$ADT_HOME"
+export ANDROID_NDK="$HOME/Development/android-ndk-r9"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+export JAVA_OPTS="-XX:MaxPermSize=512m -Xms512m -Xmx4000m"
+
+alias gbv="git branch -vv"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -14,12 +22,14 @@ source $ZSH/oh-my-zsh.sh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 export PATH="$ADT_HOME/platform-tools:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/Development/vertx/vertx-dist/bin:$PATH"
 export PATH="$ADT_HOME/tools:$PATH"
 export PATH="$GROOVY_HOME/bin:$PATH"
-export PATH="$HOME/Development/depot_tools:$PATH"
+export PATH="/usr/local/DS-5/bin:$PATH"
+export NDK_MODULE_PATH="$HOME/Development/tools"
+source "$HOME/.rvm/scripts/rvm"
+
 export GOPATH="$HOME/Development/go"
 export GOROOT="`go env GOROOT`"
 
@@ -34,4 +44,5 @@ fi
 
 alias nodeh="node --harmony"
 
-#eval "$(jenv init -)"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
