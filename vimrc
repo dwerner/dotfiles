@@ -59,7 +59,10 @@ Bundle 'ekalinin/Dockerfile.vim'
 " let g:instant_markdown_slow = 1
 let g:Powerline_symbols = 'fancy'
 
-"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+" ignore rust's stupid recommended styles
+let g:rust_recommended_style = 0
+
+"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾u
 " Status line 
 "______________________________________________________________________________
 
@@ -154,8 +157,7 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
     "automatically run unit tests if we are working on app.js
-    autocmd BufWritePost *.js !mocha -G ./test/ --recursive > testlog.txt 2>&1 &
-    autocmd BufWritePost *.kt !if [ -x "./test" ]; then ./test > testlog.txt 2>&1 &; fi
+    autocmd BufWritePost *.js !mocha -G ./test/ --recursive
   augroup END
 
 else
