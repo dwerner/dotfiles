@@ -54,13 +54,17 @@ Bundle 'udalov/kotlin-vim'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'flazz/vim-colorschemes'
 
 
 
 " let g:instant_markdown_slow = 1
 let g:Powerline_symbols = 'fancy'
 
-"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+" ignore rust's stupid recommended styles
+let g:rust_recommended_style = 0
+
+"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾u
 " Status line 
 "______________________________________________________________________________
 
@@ -262,9 +266,10 @@ endif
 syntax enable
 set background=light
  
-"colorscheme solarized
-" highlight NonText guibg=#060606
-" highlight Folded  guibg=#0A0A0A guifg=#9090D0
+"colorscheme bubblegum 
+colorscheme molokai
+ highlight NonText guibg=#060606
+ highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number
