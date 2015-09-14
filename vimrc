@@ -37,6 +37,8 @@ call vundle#rc()
 " Bundle list - update with :BundleInstall!
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive.git' 
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tfnico/vim-gradle' 
@@ -44,17 +46,17 @@ Bundle 'jade.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'xolox/vim-reload'
 Bundle 'xolox/vim-misc'
-Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
 Bundle 'derekwyatt/vim-scala'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'udalov/kotlin-vim' 
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/vimshell.vim'
+Bundle 'p0deje/vim-dispatch-vimshell'
 
 
 
@@ -63,6 +65,8 @@ let g:Powerline_symbols = 'fancy'
 
 " ignore rust's stupid recommended styles
 let g:rust_recommended_style = 0
+
+let g:test_mode = 'test'
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾u
 " Status line 
@@ -158,9 +162,10 @@ if has("autocmd")
     " Automatically load .vimrc source when saved
     autocmd BufWritePost .vimrc source $MYVIMRC
 
-    "automatically run unit tests if we are working on app.js
-    autocmd BufWritePost *.js !mocha -G ./test/ --recursive
-  augroup END
+    "automatically run tests via Dispatch 
+    autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
+    autocmd BufWritePost *.rs Dispatch cargo test
+	augroup END
 
 else
 
@@ -267,7 +272,7 @@ syntax enable
 set background=light
  
 "colorscheme bubblegum 
-colorscheme molokai
+colorscheme molokai 
  highlight NonText guibg=#060606
  highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
