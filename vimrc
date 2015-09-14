@@ -272,7 +272,10 @@ syntax enable
 set background=light
  
 "colorscheme bubblegum 
-colorscheme molokai 
+"colorscheme molokai 
+"colorscheme smyck 
+"colorscheme smp
+colorscheme miko
  highlight NonText guibg=#060606
  highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
