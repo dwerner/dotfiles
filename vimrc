@@ -165,6 +165,7 @@ if has("autocmd")
     "automatically run tests via Dispatch 
     autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
     autocmd BufWritePost *.rs Dispatch cargo test
+    autocmd BufWritePost *.kt Dispatch gradle test
 	augroup END
 
 else
