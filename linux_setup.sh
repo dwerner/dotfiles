@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo apt-get install -y vim-nox
+sudo apt-get install zsh
 sudo apt-get install -y python-pip
 sudo pip install git+git://github.com/Lokaltog/powerline
 
@@ -25,3 +27,5 @@ sudo apt-get -y install tree
 sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 sudo apt-get update
 sudo apt-get -y install lxc-docker
+
+echo "Run rake to complete dotfiles install"
