@@ -3,7 +3,6 @@
 set -e
 
 mkdir -p ~/Development
-# sudo dpkg --add-architecture i386
 sudo add-apt-repository -y ppa:cwchien/gradle
 sudo add-apt-repository -y ppa:webupd8team/java
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -25,6 +24,10 @@ google-chrome https://www.rust-lang.org/ &
 google-chrome https://golang.org/ &
 google-chrome http://developer.android.com/sdk/index.html &
 google-chrome http://developer.android.com/sdk/installing/index.html?pkg=tools &
+
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install -y ia32-libs # needed for adb to run
 
 sudo pip install git+git://github.com/Lokaltog/powerline
 
