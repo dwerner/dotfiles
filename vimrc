@@ -57,6 +57,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'p0deje/vim-dispatch-vimshell'
+Bundle 'fatih/vim-go'
 
 
 

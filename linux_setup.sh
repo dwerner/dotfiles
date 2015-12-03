@@ -1,8 +1,31 @@
 #!/bin/sh
 
-sudo apt-get install -y vim-nox
-sudo apt-get install zsh
-sudo apt-get install -y python-pip
+set -e
+
+mkdir -p ~/Development
+
+sudo add-apt-repository -y ppa:cwchien/gradle
+sudo add-apt-repository -y ppa:webupd8team/java
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
+
+sudo apt-get update
+
+sudo apt-get install -y vim-nox \
+	zsh \
+	tree \
+	rake \
+	python-pip \
+	oracle-java8-installer \
+	google-chrome-stable \
+	gradle
+
+google-chrome https://www.jetbrains.com/idea/download &
+google-chrome https://www.rust-lang.org/ &
+google-chrome https://golang.org/ &
+google-chrome http://developer.android.com/sdk/index.html &
+google-chrome http://developer.android.com/sdk/installing/index.html?pkg=tools &
+
 sudo pip install git+git://github.com/Lokaltog/powerline
 
 wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
@@ -10,22 +33,4 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
-# install oracle's java from ppa
-sudo add-apt-repository ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get -y install oracle-java8-installer
-
-# install gradle from ppa
-sudo add-apt-repository ppa:cwchien/gradle
-sudo apt-get update
-sudo apt-get -y install gradle
-
-# install tree command for hierarchical directory listing
-sudo apt-get -y install tree
-
-# install lxc-docker
-sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-sudo apt-get update
-sudo apt-get -y install lxc-docker
-
-echo "Run rake to complete dotfiles install"
+echo "Run 'rake install' to complete dotfiles install"

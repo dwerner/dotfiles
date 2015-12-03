@@ -41,7 +41,10 @@ task :install do
   puts "Updating vim bundles with +BundleInstall +qall"
   system %Q{vim +BundleInstall +qall}
 
-  puts "Installation of dotfiles completed."
+	puts "Building vimproc"
+	system %Q{cd vim/bundle/vimproc.vim && make}
+
+  puts "Installation of dotfiles completed. Restart or logout if you switched shells. :P"
 end
 
 def replace_file(file)
