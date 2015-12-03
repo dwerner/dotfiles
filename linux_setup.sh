@@ -27,7 +27,6 @@ google-chrome http://developer.android.com/sdk/installing/index.html?pkg=tools &
 
 sudo dpkg --add-architecture i386
 sudo apt-get update
-sudo apt-get install -y ia32-libs # needed for adb to run
 
 sudo pip install git+git://github.com/Lokaltog/powerline
 
