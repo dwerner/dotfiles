@@ -3,7 +3,7 @@
 set -e
 
 mkdir -p ~/Development
-
+# sudo dpkg --add-architecture i386
 sudo add-apt-repository -y ppa:cwchien/gradle
 sudo add-apt-repository -y ppa:webupd8team/java
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
