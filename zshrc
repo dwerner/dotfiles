@@ -11,9 +11,10 @@ export GROOVY_HOME="$HOME/Development/groovy"
 export GRADLE_HOME="$HOME/Development/gradle-2.0"
 export ANDROID_SDK="$ADT_HOME"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export JAVA_OPTS="-XX:MaxPermSize=512m -Xms512m -Xmx4000m"
 
 alias gbv="git branch -vv"
+alias x-hd="xrandr --output DisplayPort-0 --mode 1920x1080"
+alias x-4k="xrandr --output DisplayPort-0 --mode 3840x2160"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -25,11 +26,12 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/Development/vertx/vertx-dist/bin:$PATH"
 export PATH="$ADT_HOME/tools:$PATH"
 export PATH="$GROOVY_HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
 export NDK_MODULE_PATH="$HOME/Development/tools"
 
-export GOPATH="$HOME/Development/go"
-export GOROOT="`go env GOROOT`"
-
+export GOROOT="$HOME/Development/go"
+export PATH="$GOROOT/bin:$PATH"
 
 if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"
