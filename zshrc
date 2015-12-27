@@ -13,8 +13,11 @@ export ANDROID_SDK="$ADT_HOME"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
 alias gbv="git branch -vv"
-alias x-hd="xrandr --output DisplayPort-0 --mode 1920x1080"
-alias x-4k="xrandr --output DisplayPort-0 --mode 3840x2160"
+
+export MAIN_DISPLAY="DFP1"
+
+alias x-hd="xrandr --output $MAIN_DISPLAY --mode 1920x1080"
+alias x-4k="xrandr --output $MAIN_DISPLAY --mode 3840x2160"
 
 source $ZSH/oh-my-zsh.sh
 
