@@ -5,7 +5,7 @@ set -e
 mkdir -p ~/Development
 sudo add-apt-repository -y ppa:cwchien/gradle
 sudo add-apt-repository -y ppa:webupd8team/java
-
+sudo add-apt-repository ppa:nilarimogard/webupd8
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
@@ -19,6 +19,7 @@ sudo apt-get install -y vim-nox \
 	python-pip \
 	oracle-java8-installer \
 	google-chrome-stable \
+	screenkey \
 	gradle
 
 google-chrome https://www.jetbrains.com/idea/download &
