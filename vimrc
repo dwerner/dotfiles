@@ -58,6 +58,7 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'p0deje/vim-dispatch-vimshell'
 Bundle 'fatih/vim-go'
+Bundle 'Floobits/floobits-vim'
 
 
 
@@ -164,7 +165,7 @@ if has("autocmd")
     autocmd BufWritePost .vimrc source $MYVIMRC
 
     "automatically run tests via Dispatch 
-    autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
+    " autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
     autocmd BufWritePost *.rs Dispatch cargo test
     autocmd BufWritePost *.kt Dispatch gradle test
 	augroup END
