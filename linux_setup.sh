@@ -18,6 +18,7 @@ sudo apt-get install -y vim-nox \
 	tree \
 	rake \
 	python-pip \
+	python-dev \
 	oracle-java8-installer \
 	google-chrome-stable \
 	screenkey \

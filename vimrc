@@ -58,7 +58,8 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'Shougo/vimshell.vim'
 Bundle 'p0deje/vim-dispatch-vimshell'
 Bundle 'fatih/vim-go'
-Bundle 'Floobits/floobits-vim'
+Bundle 'racer-rust/vim-racer'
+Bundle 'Valloric/YouCompleteMe'
 
 
 

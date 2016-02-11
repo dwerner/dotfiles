@@ -10,6 +10,7 @@ export ANDROID_HOME="$ADT_HOME"
 export ANDROID_SDK="$ADT_HOME"
 export ANDROID_SDK="$HOME/Development/android-ndk-r10e"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+export RUST_SRC_PATH="$HOME/Development/rust-src"
 
 alias gbv="git branch -vv"
 
@@ -24,6 +25,7 @@ export PATH="$ADT_HOME/platform-tools:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$ADT_HOME/tools:$PATH"
 export PATH="$GROOVY_HOME/bin:$PATH"
+export PATH="/home/dan/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 export NDK_MODULE_PATH="$HOME/Development/tools"
@@ -45,4 +47,3 @@ export NVM_DIR="/home/dan/.nvm"
 export RABBIT_AUTH="experiment:experiment"
 export RABBIT_VHOST="experiment"
 
-nvm use 5
