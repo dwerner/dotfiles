@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="afowler"
+ZSH_THEME="mh"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(git rbates)
@@ -11,13 +11,7 @@ export ANDROID_SDK="$ADT_HOME"
 export ANDROID_SDK="$HOME/Development/android-ndk-r10e"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 export RUST_SRC_PATH="$HOME/Development/rust-src"
-
-alias gbv="git branch -vv"
-
-export MAIN_DISPLAY="DFP1"
-
-alias x-hd="xrandr --output $MAIN_DISPLAY --mode 1920x1080"
-alias x-4k="xrandr --output $MAIN_DISPLAY --mode 3840x2160"
+export FLEX_HOME="$HOME/Development/apache-flex"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,10 +34,3 @@ fi
 if [[ -r /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
       source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
-
-export NVM_DIR="/home/dan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export RABBIT_AUTH="experiment:experiment"
-export RABBIT_VHOST="experiment"
-
