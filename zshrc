@@ -21,6 +21,7 @@ export PATH="$ADT_HOME/tools:$PATH"
 export PATH="$GROOVY_HOME/bin:$PATH"
 export PATH="/home/dan/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 export NDK_MODULE_PATH="$HOME/Development/tools"
 
