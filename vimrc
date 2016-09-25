@@ -25,8 +25,8 @@ map Q gq
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-  set hlsearch
+	syntax on
+	set hlsearch
 endif
 
 set rtp+=$HOME/.vim/bundle/vundle/
@@ -36,6 +36,7 @@ call vundle#rc()
 
 " Bundle list - update with :BundleInstall!
 Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-fugitive.git' 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-dispatch'
@@ -54,12 +55,6 @@ Bundle 'udalov/kotlin-vim'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'p0deje/vim-dispatch-vimshell'
-Bundle 'fatih/vim-go'
-Bundle 'racer-rust/vim-racer'
-Bundle 'Valloric/YouCompleteMe'
 
 
 
@@ -70,6 +65,9 @@ let g:Powerline_symbols = 'fancy'
 let g:rust_recommended_style = 0
 
 let g:test_mode = 'test'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ":t"
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾u
 " Status line 
@@ -128,52 +126,52 @@ set ttymouse=xterm2
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Some Linux distributions set filetype in /etc/vimrc.
-  "   " Clear filetype flags before changing runtimepath to force Vim to reload them.
-  if exists("g:did_load_filetypes")
-    filetype off
-    filetype plugin indent off
-  endif
-  set runtimepath+=GOROOT/misc/vim " replace $GOROOT withthe output of: go env GOROOT
-  filetype plugin indent on
-  syntax on
+	" Enable file type detection.
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Some Linux distributions set filetype in /etc/vimrc.
+	"   " Clear filetype flags before changing runtimepath to force Vim to reload them.
+	if exists("g:did_load_filetypes")
+		filetype off
+		filetype plugin indent off
+	endif
+	set runtimepath+=GOROOT/misc/vim " replace $GOROOT withthe output of: go env GOROOT
+	filetype plugin indent on
+	syntax on
 
-  " Set File type to 'text' for files ending in .txt
-  autocmd BufNewFile,BufRead *.txt setfiletype text
+	" Set File type to 'text' for files ending in .txt
+	autocmd BufNewFile,BufRead *.txt setfiletype text
 
-  " Enable soft-wrapping for text files
-  autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
+	" Enable soft-wrapping for text files
+	autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
+	" Put these in an autocmd group, so that we can delete them easily.
+	augroup vimrcEx
+		au!
 
-    " For all text files set 'textwidth' to 78 characters.
-    " autocmd FileType text setlocal textwidth=78
+		" For all text files set 'textwidth' to 78 characters.
+		" autocmd FileType text setlocal textwidth=78
 
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    autocmd BufReadPost *
-          \ if line("'\"") > 0 && line("'\"") <= line("$") |
-          \   exe "normal g`\"" |
-          \ endif
+		" When editing a file, always jump to the last known cursor position.
+		" Don't do it when the position is invalid or when inside an event handler
+		" (happens when dropping a file on gvim).
+		autocmd BufReadPost *
+					\ if line("'\"") > 0 && line("'\"") <= line("$") |
+					\   exe "normal g`\"" |
+					\ endif
 
-    " Automatically load .vimrc source when saved
-    autocmd BufWritePost .vimrc source $MYVIMRC
+		" Automatically load .vimrc source when saved
+		autocmd BufWritePost .vimrc source $MYVIMRC
 
-    "automatically run tests via Dispatch 
-    " autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
-    autocmd BufWritePost *.rs Dispatch cargo test
-    autocmd BufWritePost *.kt Dispatch gradle test
+		"automatically run tests via Dispatch 
+		" autocmd BufWritePost *.js Dispatch mocha -G ./test/ --recursive
+		" autocmd BufWritePost *.rs Dispatch cargo test
+		autocmd BufWritePost *.kt Dispatch gradle test
 	augroup END
 
 else
 
-  set autoindent		" always set autoindenting on
+	set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
@@ -258,30 +256,30 @@ command! Rschema :e db/schema.rb
 
 " Local config
 if filereadable(".vimrc.local")
-  source .vimrc.local
+	source .vimrc.local
 endif
 
 " Use Ack instead of Grep when available
 if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
+	set grepprg=ack\ -H\ --nogroup\ --nocolor\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
 " Color scheme
 if $TERM =~ '256color'
-  set t_Co=256
+	set t_Co=256
 elseif $TERM =~ '^xterm$'
-  set t_Co=256
+	set t_Co=256
 endif
 syntax enable
 set background=light
- 
-"colorscheme bubblegum 
+
+colorscheme bubblegum 
 "colorscheme molokai 
 "colorscheme smyck 
 "colorscheme smp
-colorscheme miko
- highlight NonText guibg=#060606
- highlight Folded  guibg=#0A0A0A guifg=#9090D0
+"colorscheme miko
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number
@@ -317,25 +315,25 @@ autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 "return '[\s]' if trailing white space is detected
 "return '' otherwise
 function! StatuslineTrailingSpaceWarning()
-  if !exists("b:statusline_trailing_space_warning")
-    if search('\s\+$', 'nw') != 0
-      let b:statusline_trailing_space_warning = '[\s]'
-    else
-      let b:statusline_trailing_space_warning = ''
-    endif
-  endif
-  return b:statusline_trailing_space_warning
+	if !exists("b:statusline_trailing_space_warning")
+		if search('\s\+$', 'nw') != 0
+			let b:statusline_trailing_space_warning = '[\s]'
+		else
+			let b:statusline_trailing_space_warning = ''
+		endif
+	endif
+	return b:statusline_trailing_space_warning
 endfunction
 
 
 "return the syntax highlight group under the cursor ''
 function! StatuslineCurrentHighlight()
-  let name = synIDattr(synID(line('.'),col('.'),1),'name')
-  if name == ''
-    return ''
-  else
-    return '[' . name . ']'
-  endif
+	let name = synIDattr(synID(line('.'),col('.'),1),'name')
+	if name == ''
+		return ''
+	else
+		return '[' . name . ']'
+	endif
 endfunction
 
 "recalculate the tab warning flag when idle and after writing
@@ -345,19 +343,19 @@ autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 "return '[mixed-indenting]' if spaces and tabs are used to indent
 "return an empty string if everything is fine
 function! StatuslineTabWarning()
-  if !exists("b:statusline_tab_warning")
-    let tabs = search('^\t', 'nw') != 0
-    let spaces = search('^ ', 'nw') != 0
+	if !exists("b:statusline_tab_warning")
+		let tabs = search('^\t', 'nw') != 0
+		let spaces = search('^ ', 'nw') != 0
 
-    if tabs && spaces
-      let b:statusline_tab_warning =  '[mixed-indenting]'
-    elseif (spaces && !&et) || (tabs && &et)
-      let b:statusline_tab_warning = '[&et]'
-    else
-      let b:statusline_tab_warning = ''
-    endif
-  endif
-  return b:statusline_tab_warning
+		if tabs && spaces
+			let b:statusline_tab_warning =  '[mixed-indenting]'
+		elseif (spaces && !&et) || (tabs && &et)
+			let b:statusline_tab_warning = '[&et]'
+		else
+			let b:statusline_tab_warning = ''
+		endif
+	endif
+	return b:statusline_tab_warning
 endfunction
 
 "recalculate the long line warning when idle and after saving
@@ -371,49 +369,49 @@ autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 "lines, y is the median length of the long lines and z is the length of the
 "longest line
 function! StatuslineLongLineWarning()
-  if !exists("b:statusline_long_line_warning")
-    let long_line_lens = s:LongLines()
+	if !exists("b:statusline_long_line_warning")
+		let long_line_lens = s:LongLines()
 
-    if len(long_line_lens) > 0
-      let b:statusline_long_line_warning = "[" .
-            \ '#' . len(long_line_lens) . "," .
-            \ 'm' . s:Median(long_line_lens) . "," .
-            \ '$' . max(long_line_lens) . "]"
-    else
-      let b:statusline_long_line_warning = ""
-    endif
-  endif
-  return b:statusline_long_line_warning
+		if len(long_line_lens) > 0
+			let b:statusline_long_line_warning = "[" .
+						\ '#' . len(long_line_lens) . "," .
+						\ 'm' . s:Median(long_line_lens) . "," .
+						\ '$' . max(long_line_lens) . "]"
+		else
+			let b:statusline_long_line_warning = ""
+		endif
+	endif
+	return b:statusline_long_line_warning
 endfunction
 
 "return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
-  let threshold = (&tw ? &tw : 80)
-  let spaces = repeat(" ", &ts)
+	let threshold = (&tw ? &tw : 80)
+	let spaces = repeat(" ", &ts)
 
-  let long_line_lens = []
+	let long_line_lens = []
 
-  let i = 1
-  while i <= line("$")
-    let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-    if len > threshold
-      call add(long_line_lens, len)
-    endif
-    let i += 1
-  endwhile
+	let i = 1
+	while i <= line("$")
+		let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
+		if len > threshold
+			call add(long_line_lens, len)
+		endif
+		let i += 1
+	endwhile
 
-  return long_line_lens
+	return long_line_lens
 endfunction
 
 "find the median of the given array of numbers
 function! s:Median(nums)
-  let nums = sort(a:nums)
-  let l = len(nums)
+	let nums = sort(a:nums)
+	let l = len(nums)
 
-  if l % 2 == 1
-    let i = (l-1) / 2
-    return nums[i]
-  else
-    return (nums[l/2] + nums[(l/2)-1]) / 2
-  endif
+	if l % 2 == 1
+		let i = (l-1) / 2
+		return nums[i]
+	else
+		return (nums[l/2] + nums[(l/2)-1]) / 2
+	endif
 endfunction
