@@ -77,8 +77,12 @@ if has("autocmd")
 	endif
 	filetype plugin indent on
 	syntax on
+
 	autocmd BufNewFile,BufRead *.txt setfiletype text
 	autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
+	autocmd VimEnter * NERDTreeFind
+
+
 	augroup vimrcEx
 		au!
 		autocmd BufReadPost *
@@ -104,9 +108,10 @@ let mapleader=","
 noremap <Leader>r :w !cargo run<CR>
 noremap <Leader>t :w !cargo test<CR>
 noremap <Leader>w :NERDTreeToggle<CR>
-noremap <Leader>f :bn<CR>
+noremap <Leader>f :bn<CR
 noremap <Leader>d :bp<CR>
 noremap <Leader>x :bd<CR>
+noremap <Leader>r :NERDTreeFind<CR>
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 " Feature: Disable arrow keys
