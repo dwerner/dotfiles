@@ -108,7 +108,7 @@ let mapleader=","
 noremap <Leader>r :w !cargo run<CR>
 noremap <Leader>t :w !cargo test<CR>
 noremap <Leader>w :NERDTreeToggle<CR>
-noremap <Leader>f :bn<CR
+noremap <Leader>f :bn<CR>
 noremap <Leader>d :bp<CR>
 noremap <Leader>x :bd<CR>
 noremap <Leader>r :NERDTreeFind<CR>
