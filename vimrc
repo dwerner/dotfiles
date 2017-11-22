@@ -29,7 +29,6 @@ call vundle#rc()
 
 " Bundle list - update with :BundleInstall!
 Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-fugitive.git' 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-dispatch'
@@ -43,8 +42,6 @@ Bundle 'xolox/vim-misc'
 Bundle 'wting/rust.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'udalov/kotlin-vim' 
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'flazz/vim-colorschemes'
@@ -80,8 +77,6 @@ if has("autocmd")
 
 	autocmd BufNewFile,BufRead *.txt setfiletype text
 	autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
-	autocmd VimEnter * NERDTreeFind
-
 
 	augroup vimrcEx
 		au!
@@ -107,11 +102,6 @@ let mapleader=","
 
 noremap <Leader>r :w !cargo run<CR>
 noremap <Leader>t :w !cargo test<CR>
-noremap <Leader>w :NERDTreeToggle<CR>
-noremap <Leader>f :bn<CR>
-noremap <Leader>d :bp<CR>
-noremap <Leader>x :bd<CR>
-noremap <Leader>r :NERDTreeFind<CR>
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 " Feature: Disable arrow keys
@@ -143,13 +133,12 @@ elseif $TERM =~ '^xterm$'
 	set t_Co=256
 endif
 syntax enable
-set background=light
 
-colorscheme bubblegum 
+"colorscheme bubblegum 
 "colorscheme molokai 
 "colorscheme smyck 
 "colorscheme smp
-"colorscheme miko
+colorscheme miko
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 

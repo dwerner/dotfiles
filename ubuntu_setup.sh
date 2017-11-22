@@ -16,6 +16,9 @@ sudo apt-get install -y vim-nox \
 	zsh \
 	tree \
 	rake \
+	cmake \
+	clang \
+	ninja-build \
 	python-pip \
 	python-dev \
 	oracle-java8-installer \
