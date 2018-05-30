@@ -45,6 +45,8 @@ Bundle 'bling/vim-airline'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'fatih/vim-go'
+Bundle 'valloric/YouCompleteMe'
 
 " let g:instant_markdown_slow = 1
 let g:Powerline_symbols = 'fancy'
@@ -52,8 +54,9 @@ let g:Powerline_symbols = 'fancy'
 " ignore rust's stupid recommended styles
 let g:rust_recommended_style = 0
 
+let g:ycm_confirm_extra_conf = 0
 " setup ycm with rust system src path
-let g:ycm_rust_src_path = '/home/dan/Development/rustc-src-current/src'
+let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust'
 
 let g:test_mode = 'test'
 
@@ -90,18 +93,20 @@ else
 	set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-" set expandtab
+" Softtabs, 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Always display the status line
 set laststatus=2
 
 let mapleader=","
 
-noremap <Leader>r :w !cargo run<CR>
-noremap <Leader>t :w !cargo test<CR>
+noremap <Leader>r :w|!cargo run<CR>
+noremap <Leader>t :w|!cargo test<CR>
+noremap <Leader>b :w|!cargo build<CR>
+noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 " Feature: Disable arrow keys
@@ -134,11 +139,11 @@ elseif $TERM =~ '^xterm$'
 endif
 syntax enable
 
-"colorscheme bubblegum 
+colorscheme bubblegum 
 "colorscheme molokai 
 "colorscheme smyck 
 "colorscheme smp
-colorscheme miko
+"colorscheme miko
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
