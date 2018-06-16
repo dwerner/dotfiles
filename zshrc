@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="mh"
+ZSH_THEME="blinks"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(git rbates)
@@ -17,7 +17,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export NDK_MODULE_PATH="$HOME/Development/tools"
 
+export RUSTUP_HOME="$HOME/.rustup"
+
 export GOROOT="$HOME/Development/go"
+export GOPATH="$HOME/Development"
+export PATH="$GOPATH/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 
 if [ -d "$HOME/bin" ]; then

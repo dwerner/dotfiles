@@ -103,9 +103,24 @@ set laststatus=2
 
 let mapleader=","
 
-noremap <Leader>r :w|!cargo run<CR>
-noremap <Leader>t :w|!cargo test<CR>
-noremap <Leader>b :w|!cargo build<CR>
+function! SaveAndRunCargo(cmd)
+    execute ':w'
+    let c = ':!cargo ' . a:cmd
+    execute c
+endfunction
+
+function! SaveAndRunGoTest(cmd)
+    execute ':w'
+    let c = ':!go test ' . a:cmd
+    execute c
+endfunction
+
+let g:go_fmt_command = "goimports"
+
+noremap <Leader>r :call SaveAndRunCargo('run')<CR>
+noremap <Leader>t :call SaveAndRunCargo('test')<CR>
+noremap <Leader>b :call SaveAndRunCargo('build')<CR>
+noremap <Leader>m :call SaveAndRunGoTest('./...')<CR>
 noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
 
 "‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
