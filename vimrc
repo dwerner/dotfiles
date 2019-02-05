@@ -29,13 +29,13 @@ call vundle#rc()
 
 " Bundle list - update with :BundleInstall!
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive.git' 
+Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tfnico/vim-gradle' 
-Bundle 'jade.vim' 
+Bundle 'tfnico/vim-gradle'
+Bundle 'jade.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'xolox/vim-reload'
 Bundle 'xolox/vim-misc'
@@ -45,18 +45,26 @@ Bundle 'bling/vim-airline'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'tikhomirov/vim-glsl'
 Bundle 'fatih/vim-go'
 Bundle 'valloric/YouCompleteMe'
+Bundle 'rjohnsondev/vim-compiler-go'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'udalov/kotlin-vim'
 
 " let g:instant_markdown_slow = 1
 let g:Powerline_symbols = 'fancy'
 
-" ignore rust's stupid recommended styles
-let g:rust_recommended_style = 0
+let g:strip_whitespace_on_save=1
+
+let g:golang_goroot = '/home/dan/Development'
 
 let g:ycm_confirm_extra_conf = 0
 " setup ycm with rust system src path
 let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust'
+
+let g:rustfmt_autosave = 1
 
 let g:test_mode = 'test'
 
@@ -92,6 +100,7 @@ if has("autocmd")
 else
 	set autoindent		" always set autoindenting on
 endif " has("autocmd")
+
 
 " Softtabs, 4 spaces
 set tabstop=4
@@ -154,11 +163,11 @@ elseif $TERM =~ '^xterm$'
 endif
 syntax enable
 
-colorscheme bubblegum 
-"colorscheme molokai 
-"colorscheme smyck 
+"colorscheme bubblegum
+"colorscheme molokai
+"colorscheme smyck
 "colorscheme smp
-"colorscheme miko
+colorscheme miko
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
