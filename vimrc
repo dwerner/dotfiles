@@ -3,6 +3,7 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -22,41 +23,35 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
 	set hlsearch
 endif
 
-set rtp+=$HOME/.vim/bundle/vundle/
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=$HOME/.vim/bundle/Vundle.Vim/
 
-call vundle#rc()
+call vundle#begin()
 
-" Bundle list - update with :BundleInstall!
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-dispatch'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tfnico/vim-gradle'
-Bundle 'jade.vim'
-Bundle 'walm/jshint.vim'
-Bundle 'xolox/vim-reload'
-Bundle 'xolox/vim-misc'
-Bundle 'wting/rust.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
-Bundle 'suan/vim-instant-markdown'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'tikhomirov/vim-glsl'
-Bundle 'fatih/vim-go'
-Bundle 'valloric/YouCompleteMe'
-Bundle 'rjohnsondev/vim-compiler-go'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'udalov/kotlin-vim'
+Plugin 'VundleVim/Vundle.Vim'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-dispatch'
+Plugin 'walm/jshint.vim'
+Plugin 'bling/vim-airline'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'fatih/vim-go'
+Plugin 'valloric/YouCompleteMe'
+Plugin 'rjohnsondev/vim-compiler-go'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'tfnico/vim-gradle'
+Plugin 'udalov/kotlin-vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'scrooloose/syntastic'
+Plugin 'xolox/vim-colorscheme-switcher'
+Plugin 'xolox/vim-reload'
+Plugin 'xolox/vim-misc'
+Plugin 'rust-lang/rust.vim'
 
-" let g:instant_markdown_slow = 1
-let g:Powerline_symbols = 'fancy'
-
-let g:strip_whitespace_on_save=1
+call vundle#end()
+filetype plugin indent on
 
 let g:golang_goroot = '/home/dan/Development'
 
@@ -64,43 +59,13 @@ let g:ycm_confirm_extra_conf = 0
 " setup ycm with rust system src path
 let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust'
 
+" let g:instant_markdown_slow = 1
+let g:Powerline_symbols = 'fancy'
+
+let g:strip_whitespace_on_save=1
+let g:rustfmt_command = ""
 let g:rustfmt_autosave = 1
-
 let g:test_mode = 'test'
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ":t"
-
-"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-" Terminal
-"______________________________________________________________________________
-"some stuff to get the mouse going in term
-set mouse=a
-set ttymouse=xterm2
-
-if has("autocmd")
-	if exists("g:did_load_filetypes")
-		filetype off
-		filetype plugin indent off
-	endif
-	filetype plugin indent on
-	syntax on
-
-	autocmd BufNewFile,BufRead *.txt setfiletype text
-	autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
-
-	augroup vimrcEx
-		au!
-		autocmd BufReadPost *
-					\ if line("'\"") > 0 && line("'\"") <= line("$") |
-					\   exe "normal g`\"" |
-					\ endif
-		autocmd BufWritePost .vimrc source $MYVIMRC
-	augroup END
-else
-	set autoindent		" always set autoindenting on
-endif " has("autocmd")
-
 
 " Softtabs, 4 spaces
 set tabstop=4
@@ -131,20 +96,7 @@ noremap <Leader>t :call SaveAndRunCargo('test')<CR>
 noremap <Leader>b :call SaveAndRunCargo('build')<CR>
 noremap <Leader>m :call SaveAndRunGoTest('./...')<CR>
 noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
-
-"‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-" Feature: Disable arrow keys
-"______________________________________________________________________________
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
+noremap <leader>c :NextColorScheme<CR>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
@@ -153,8 +105,6 @@ vmap P p :call setreg('"', getreg('0')) <CR>
 " Maps autocomplete to tab
 imap <Tab> <C-N>
 
-imap <C-L> <Space>=><Space>
-
 " Color scheme
 if $TERM =~ '256color'
 	set t_Co=256
@@ -162,12 +112,8 @@ elseif $TERM =~ '^xterm$'
 	set t_Co=256
 endif
 syntax enable
+colorscheme badwolf
 
-"colorscheme bubblegum
-"colorscheme molokai
-"colorscheme smyck
-"colorscheme smp
-colorscheme miko
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
