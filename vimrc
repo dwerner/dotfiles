@@ -63,7 +63,6 @@ let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-
 let g:Powerline_symbols = 'fancy'
 
 let g:strip_whitespace_on_save=1
-let g:rustfmt_command = ""
 let g:rustfmt_autosave = 1
 let g:test_mode = 'test'
 
