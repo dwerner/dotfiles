@@ -5,23 +5,6 @@
 set nocompatible
 filetype off
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set nobackup
-set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set showbreak=... "set visual cue for linebreak
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-	syntax on
-	set hlsearch
-endif
 
 set rtp+=$HOME/.vim/bundle/Vundle.Vim/
 
@@ -44,32 +27,70 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'tfnico/vim-gradle'
 Plugin 'udalov/kotlin-vim'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'scrooloose/syntastic'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-reload'
 Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
 
+"syntastic conflicts with ale, and ale is asynchronous
+""Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
+
 call vundle#end()
 filetype plugin indent on
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set nobackup
+set nowritebackup
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set incsearch		" do incremental searching
+set showbreak=... "set visual cue for linebreak
+
 let g:golang_goroot = '/home/dan/Development'
 
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+	syntax on
+	set hlsearch
+endif
+
+"ale
+let g:ale_enabled = 1
+let g:ale_rust_cargo_use_clippy = 1
+
+let g:ale_linters = {'rust': ['cargo']}
+let g:ale_lint_on_save = 1
+
+let g:ale_fixers = {'rust': ['rustfmt']}
+let g:ale_fix_on_save = 1
+
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_open_list = 1
+
+let g:rustfmt_autosave = 0
+
+" YCM
 let g:ycm_confirm_extra_conf = 0
-" setup ycm with rust system src path
 let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust'
 
-" let g:instant_markdown_slow = 1
-let g:Powerline_symbols = 'fancy'
-
 let g:strip_whitespace_on_save=1
-let g:rustfmt_autosave = 1
 let g:test_mode = 'test'
 
 " Softtabs, 4 spaces
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set cursorline
+set cursorcolumn
 
 " Always display the status line
 set laststatus=2
@@ -90,8 +111,9 @@ endfunction
 
 let g:go_fmt_command = "goimports"
 
-noremap <Leader>r :call SaveAndRunCargo('run')<CR>
-noremap <Leader>t :call SaveAndRunCargo('test')<CR>
+noremap <Leader>r :RustRun<CR>
+noremap <Leader>T :RustTest!<CR>
+noremap <Leader>t :RustTest<CR>
 noremap <Leader>b :call SaveAndRunCargo('build')<CR>
 noremap <Leader>m :call SaveAndRunGoTest('./...')<CR>
 noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
@@ -111,7 +133,21 @@ elseif $TERM =~ '^xterm$'
 	set t_Co=256
 endif
 syntax enable
-colorscheme badwolf
+
+" dark
+"colorscheme badwolf
+"colorscheme blacklight
+"colorscheme brogrammer
+"colorscheme cake16
+"colorscheme coldgreen
+"colorscheme colorful256
+"colorscheme crt
+"colorscheme elda
+
+
+" light
+colorscheme bubblegum-256-light
+"colorscheme derefined
 
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0

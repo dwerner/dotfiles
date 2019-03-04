@@ -38,11 +38,14 @@ task :install do
   system %Q{git submodule init}
   system %Q{git submodule update}
 
-  puts "Updating vim bundles with +BundleInstall +qall"
-  system %Q{vim +BundleInstall +qall}
+  puts "Updating vim bundles with +PluginInstall +qall"
+  system %Q{vim +PluginInstall +qall}
 
   puts "Building vimproc"
   system %Q{cd vim/bundle/vimproc.vim && make}
+
+  puts "Building YouCompleteMe with clang-completer and racer-completer"
+  system %Q{cd vim/bundle/YouCompleteMe && python ./install.py --clang-completer --racer-completer}
 
   puts "Installation of dotfiles completed. Restart or logout if you switched shells. :P"
 end
