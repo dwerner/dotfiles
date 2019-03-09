@@ -7,7 +7,7 @@ sudo add-apt-repository -y ppa:cwchien/gradle
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository ppa:nilarimogard/webupd8
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
 sudo apt-get update
@@ -36,3 +36,5 @@ sudo fc-cache -vf
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
 echo "Run 'rake install' to complete dotfiles install"
+
+pip install twisted argparse service_identity

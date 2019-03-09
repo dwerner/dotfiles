@@ -31,6 +31,7 @@ Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-reload'
 Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
+Plugin 'FredKSchott/CoVim'
 
 "syntastic conflicts with ale, and ale is asynchronous
 ""Plugin 'scrooloose/syntastic'
