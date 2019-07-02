@@ -5,25 +5,24 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git rbates)
 
 export EDITOR='vim'
-export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
-export RUST_BACKTRACE=full
-
-export BUILD_TAG=linux-ubuntu-x86_64
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/vpn/bin:$PATH"
 
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
-export NDK_MODULE_PATH="$HOME/Development/tools"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
+export RUST_BACKTRACE=full
 export RUSTUP_HOME="$HOME/.rustup"
+export PATH="$HOME/.cargo/bin:$PATH"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 if [ -d "$HOME/bin" ]; then
    PATH="$HOME/bin:$PATH"

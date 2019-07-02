@@ -81,7 +81,7 @@ let g:rustfmt_autosave = 0
 
 " YCM
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_rust_src_path = $RUSTUP_HOME.'/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust'
+let g:ycm_rust_src_path = $RUST_SRC_PATH
 
 let g:strip_whitespace_on_save=1
 let g:test_mode = 'test'
@@ -119,6 +119,8 @@ noremap <Leader>b :call SaveAndRunCargo('build')<CR>
 noremap <Leader>m :call SaveAndRunGoTest('./...')<CR>
 noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
 noremap <leader>c :NextColorScheme<CR>
+noremap <silent> <leader>y "+y<CR>
+noremap <silent> <leader>p "+p<CR>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
@@ -144,10 +146,11 @@ syntax enable
 "colorscheme colorful256
 "colorscheme crt
 "colorscheme elda
+colorscheme calmar256-dark
 
 
 " light
-colorscheme bubblegum-256-light
+"colorscheme bubblegum-256-light
 "colorscheme derefined
 
 highlight NonText guibg=#060606
