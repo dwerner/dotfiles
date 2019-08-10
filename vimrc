@@ -33,6 +33,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
 Plugin 'FredKSchott/CoVim'
 
+
 "syntastic conflicts with ale, and ale is asynchronous
 ""Plugin 'scrooloose/syntastic'
 Plugin 'w0rp/ale'
@@ -121,6 +122,9 @@ noremap <silent> <leader>g :YcmCompleter GoToDefinition<CR>
 noremap <leader>c :NextColorScheme<CR>
 noremap <silent> <leader>y "+y<CR>
 noremap <silent> <leader>p "+p<CR>
+noremap <silent> <leader>s :wq<CR>
+noremap <silent> <leader>w :w<CR>
+noremap <silent> <leader>q :q<CR>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
@@ -138,20 +142,24 @@ endif
 syntax enable
 
 " dark
-"colorscheme badwolf
+" colorscheme badwolf
 "colorscheme blacklight
+"colorscheme basic-dark
 "colorscheme brogrammer
 "colorscheme cake16
 "colorscheme coldgreen
 "colorscheme colorful256
 "colorscheme crt
 "colorscheme elda
-colorscheme calmar256-dark
+"colorscheme calmar256-dark
+colorscheme Atelier_ForestDark
 
 
 " light
 "colorscheme bubblegum-256-light
 "colorscheme derefined
+"colorscheme baycomb
+
 
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
