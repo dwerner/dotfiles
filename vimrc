@@ -31,7 +31,6 @@ Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'xolox/vim-reload'
 Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
-Plugin 'FredKSchott/CoVim'
 
 
 "syntastic conflicts with ale, and ale is asynchronous
@@ -142,9 +141,9 @@ endif
 syntax enable
 
 " dark
-" colorscheme badwolf
-"colorscheme blacklight
+"colorscheme badwolf
 "colorscheme basic-dark
+"colorscheme blacklight
 "colorscheme brogrammer
 "colorscheme cake16
 "colorscheme coldgreen
