@@ -3,20 +3,19 @@
 set -e
 
 mkdir -p ~/Development
-sudo add-apt-repository -y ppa:cwchien/gradle
-sudo add-apt-repository -y ppa:webupd8team/java
 
 sudo apt-get update
 
 sudo apt-get install -y vim-nox \
-	zsh \
-	tree \
-	rake \
-	cmake \
-	clang \
-	ninja-build \
-	python-pip \
-	python-dev
+    zsh \
+    tree \
+    rake \
+    cmake \
+    valgrind \
+    kcachegrind \
+    massif-visualizer \
+    python-pip \
+    python-dev
 
 sudo apt-get update
 

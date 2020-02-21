@@ -18,10 +18,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/vpn/bin:$PATH"
 
 export PATH="/usr/local/go/bin:$PATH"
-export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
-
-export NDK_MODULE_PATH="$HOME/Development/tools"
 
 export RUSTUP_HOME="$HOME/.rustup"
 
